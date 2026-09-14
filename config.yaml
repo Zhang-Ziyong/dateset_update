@@ -1,0 +1,21 @@
+# GitHub 搜索和输出配置。workflow 会读取此文件；时间请修改
+# .github/workflows/update-slam-datasets.yml 中的 cron 表达式（UTC）。
+github:
+  enabled: true
+  timeout: 30
+  max_repositories_per_query: 8
+  github_search_queries:
+    - 'slam (lidar OR "point cloud") (dataset OR benchmark) "ground truth"'
+    - 'lio (velodyne OR ouster OR livox) dataset trajectory'
+    - 'robot slam dataset trajectory lidar'
+    - 'quadruped lidar imu dataset ground truth'
+    - 'autonomous driving lidar dataset ground truth trajectory'
+
+ai:
+  # 有 ANTHROPIC_AUTH_TOKEN 时启用，与 paper_update 的 Messages API 变量一致。
+  enabled: true
+  timeout: 120
+
+output:
+  json: docs/slam-datasets.json
+  markdown: docs/slam-datasets.md

@@ -1,0 +1,303 @@
+# 人工核验的起始目录。自动发现结果会与这些条目按数据集 URL 去重。
+# 所有条目都必须保留 3D LiDAR 与轨迹真值证据，否则脚本会过滤。
+datasets:
+  - id: kitti-odometry
+    name: KITTI Odometry
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 经典自动驾驶里程计基准，适合评估激光-惯性和多传感器 SLAM。
+    project:
+      name: LeGO-LOAM
+      url: https://github.com/RobustFieldAutonomyLab/LeGO-LOAM
+      docs_url: https://github.com/RobustFieldAutonomyLab/LeGO-LOAM#readme
+    dataset:
+      name: KITTI Vision Benchmark Suite - Odometry
+      url: https://www.cvlibs.net/datasets/kitti/eval_odometry.php
+      links:
+        - https://www.cvlibs.net/datasets/kitti/setup.php
+    sensors:
+      lidar_3d: Velodyne HDL-64E 3D LiDAR
+      imu: OXTS IMU/GNSS
+      camera: 4 cameras (灰度/彩色)
+      wheel_encoder: OXTS vehicle odometry
+      gnss: GPS/INS
+    ground_truth:
+      available: true
+      type: OXTS GPS/INS reference trajectory
+      notes: 官方 odometry 序列提供 pose ground truth，可用于 ATE/RPE。
+    evidence:
+      - https://www.cvlibs.net/datasets/kitti/setup.php
+      - https://github.com/RobustFieldAutonomyLab/LeGO-LOAM#readme
+
+  - id: oxford-robotcar
+    name: Oxford RobotCar
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 覆盖一年天气和昼夜变化的大规模真实道路机器人数据集。
+    project:
+      name: RobotCar Dataset SDK
+      url: https://github.com/ori-mrg/robotcar-dataset-sdk
+      docs_url: https://robotcar-dataset.robots.ox.ac.uk/documentation/
+    dataset:
+      name: Oxford RobotCar Dataset
+      url: https://robotcar-dataset.robots.ox.ac.uk/
+      links:
+        - https://robotcar-dataset.robots.ox.ac.uk/datasets/
+    sensors:
+      lidar_3d: Velodyne HDL-32E 3D LiDAR
+      imu:  Applanix POS LV INS
+      camera: Bumblebee stereo and PointGrey cameras
+      wheel_encoder: CAN bus vehicle odometry
+      gnss: GPS/INS
+    ground_truth:
+      available: true
+      type: Applanix INS/GPS trajectory
+      notes: 提供 INS 记录和 GPS，可按序列进行轨迹评估。
+    evidence:
+      - https://robotcar-dataset.robots.ox.ac.uk/documentation/
+      - https://github.com/ori-mrg/robotcar-dataset-sdk
+
+  - id: mulran
+    name: MulRan
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 多城市、多天气的激光-惯性-卫星导航数据集，适合回环和长期定位。
+    project:
+      name: MOLA MulRan input module
+      url: https://github.com/MOLAorg/mola_input_mulran_dataset
+      docs_url: https://github.com/MOLAorg/mola_input_mulran_dataset#readme
+    dataset:
+      name: MulRan Dataset
+      url: https://sites.google.com/view/mulran-pr/dataset
+      links:
+        - https://github.com/RPM-Robotics-Lab/file_player_mulran
+    sensors:
+      lidar_3d: Ouster OS1-64 3D LiDAR
+      imu: Xsens MTi-300 IMU
+      camera: ZED stereo camera (部分序列)
+      gnss: NovAtel GNSS/INS
+    ground_truth:
+      available: true
+      type: NovAtel GNSS/INS reference trajectory
+      notes: 官方提供 LiDAR、IMU、GNSS/INS 时间同步数据和参考轨迹。
+    evidence:
+      - https://sites.google.com/view/mulran-pr/dataset
+      - https://github.com/MOLAorg/mola_input_mulran_dataset
+
+  - id: nclt
+    name: NCLT (North Campus Long-Term)
+    scenario: 户外/越野机器人
+    platform: Segway 室外移动机器人
+    description_zh: 校园长期运行数据，包含季节和路线变化，适合长期定位与回环检测。
+    project:
+      name: hdl_graph_slam
+      url: https://github.com/koide3/hdl_graph_slam
+      docs_url: http://robots.engin.umich.edu/nclt/
+    dataset:
+      name: NCLT Dataset
+      url: http://robots.engin.umich.edu/nclt/
+      links: []
+    sensors:
+      lidar_3d: Velodyne HDL-32E 3D LiDAR
+      imu: Microstrain 3DM-GX3-45 IMU
+      camera: Ladybug spherical camera
+      wheel_encoder: Segway wheel odometry
+      gnss: Applanix localization/GPS
+    ground_truth:
+      available: true
+      type: Applanix INS/GPS reference trajectory
+      notes: 官方 ground truth pose 可用于每次采集的轨迹对齐。
+    evidence:
+      - http://robots.engin.umich.edu/nclt/
+      - https://github.com/koide3/hdl_graph_slam
+
+  - id: newer-college
+    name: Newer College Dataset
+    scenario: 混合场景
+    platform: 手持/背负式移动机器人
+    description_zh: 牛津 New College 校园高精度多传感器数据，适合室内外过渡和激光惯性评估。
+    project:
+      name: hdl_graph_slam
+      url: https://github.com/koide3/hdl_graph_slam
+      docs_url: https://ori-drs.github.io/newer-college-dataset/
+    dataset:
+      name: Newer College Dataset
+      url: https://ori-drs.github.io/newer-college-dataset/
+      links:
+        - https://ori-drs.github.io/newer-college-dataset/download/
+    sensors:
+      lidar_3d: Ouster OS1-64 3D LiDAR
+      imu: VectorNav VN-100 IMU
+      camera: RealSense stereo/RGB cameras
+      gnss: Leica/全站仪参考系统
+    ground_truth:
+      available: true
+      type: Leica/全站仪高精度参考轨迹
+      notes: 提供 ground truth trajectory 和标定文件。
+    evidence:
+      - https://ori-drs.github.io/newer-college-dataset/
+      - https://ori-drs.github.io/newer-college-dataset/download/
+
+  - id: hilti-slam-challenge
+    name: Hilti SLAM Challenge 2022
+    scenario: 室内移动机器人
+    platform: 背负式/手持式机器人
+    description_zh: 面向工程建筑环境的多传感器 SLAM 挑战数据，含高精度轨迹真值。
+    project:
+      name: Hilti SLAM Challenge tools
+      url: https://github.com/Hilti-Research/hilti-slam-challenge-2022
+      docs_url: https://hilti-challenge.com/dataset-2022.html
+    dataset:
+      name: Hilti SLAM Challenge Dataset
+      url: https://hilti-challenge.com/dataset-2022.html
+      links:
+        - https://github.com/Hilti-Research/hilti-slam-challenge-2022
+    sensors:
+      lidar_3d: Livox Mid-70 3D LiDAR
+      imu: Xsens IMU
+      camera: 双目/事件相机（按序列）
+    ground_truth:
+      available: true
+      type: Leica BLK ARC/全站仪参考轨迹
+      notes: 数据集页面提供 ground truth 和评测工具。
+    evidence:
+      - https://hilti-challenge.com/dataset-2022.html
+      - https://github.com/Hilti-Research/hilti-slam-challenge-2022
+
+  - id: boreas
+    name: Boreas Dataset
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 覆盖雪、雨、夜间和季节变化的长时间自动驾驶激光数据集。
+    project:
+      name: pyboreas
+      url: https://github.com/utiasASRL/pyboreas
+      docs_url: https://www.boreas.utias.utoronto.ca/
+    dataset:
+      name: Boreas Dataset
+      url: https://www.boreas.utias.utoronto.ca/
+      links:
+        - https://github.com/utiasASRL/pyboreas
+    sensors:
+      lidar_3d: Velodyne HDL-64E / 128-beam 3D LiDAR
+      imu: Applanix POS LV IMU
+      camera: Ladybug stereo camera
+      gnss: Applanix GNSS/INS
+    ground_truth:
+      available: true
+      type: Applanix POS LV reference trajectory
+      notes: 提供高精度 INS 轨迹和时间同步信息。
+    evidence:
+      - https://www.boreas.utias.utoronto.ca/
+      - https://github.com/utiasASRL/pyboreas
+
+  - id: kaist-urban
+    name: KAIST Urban Dataset
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 城市场景激光-视觉-惯性数据集，包含多种交通和光照条件。
+    project:
+      name: KAIST dataset ROS bag converter
+      url: https://github.com/tsyxyz/kaist2bag
+      docs_url: https://github.com/tsyxyz/kaist2bag#readme
+    dataset:
+      name: KAIST Urban Dataset
+      url: https://sites.google.com/view/complex-urban-dataset
+      links:
+        - https://github.com/MOLAorg/mola-input-kaist-dataset
+    sensors:
+      lidar_3d: Velodyne HDL-32E 3D LiDAR
+      imu: Xsens IMU
+      camera: PointGrey stereo camera
+      gnss: RTK-GPS/INS
+    ground_truth:
+      available: true
+      type: RTK-GPS/INS reference trajectory
+      notes: 提供时间同步的 GPS/INS 轨迹用于定位评估。
+    evidence:
+      - https://sites.google.com/view/complex-urban-dataset
+      - https://github.com/tsyxyz/kaist2bag
+
+  - id: urbanloco
+    name: UrbanLoco
+    scenario: 汽车/自动驾驶
+    platform: 汽车
+    description_zh: 复杂城市道路的多模态定位数据集，适合 GNSS 退化和激光惯性研究。
+    project:
+      name: LIO-SAM
+      url: https://github.com/TixiaoShan/LIO-SAM
+      docs_url: https://github.com/weisongwen/UrbanLoco
+    dataset:
+      name: UrbanLoco Dataset
+      url: https://urbanloco.com/
+      links:
+        - https://github.com/weisongwen/UrbanLoco#readme
+    sensors:
+      lidar_3d: Velodyne HDL-32E 3D LiDAR
+      imu: Xsens IMU
+      camera: 多目相机
+      wheel_encoder: 车辆 CAN/轮速
+      gnss: RTK-GPS/INS
+    ground_truth:
+      available: true
+      type: RTK-GPS/INS reference trajectory
+      notes: 数据集仓库说明了 RTK/GPS 轨迹和多传感器标定。
+    evidence:
+      - https://github.com/weisongwen/UrbanLoco
+      - https://github.com/TixiaoShan/LIO-SAM
+
+  - id: m3ed
+    name: M3ED (Multi-robot, Multi-sensor, Multi-environment Event Dataset)
+    scenario: 机器狗/四足机器人
+    platform: Spot 机器狗、汽车和 Falcon 无人机
+    description_zh: 跨车辆、Spot 机器狗和无人机的平台数据集，覆盖森林、城市、室内外和激烈运动。
+    project:
+      name: M3ED processing code
+      url: https://github.com/daniilidis-group/m3ed
+      docs_url: https://m3ed.io/
+    dataset:
+      name: M3ED
+      url: https://m3ed.io/
+      links:
+        - https://m3ed.io/download/
+        - https://github.com/daniilidis-group/m3ed
+    sensors:
+      lidar_3d: 64-channel 3D LiDAR, 10 Hz
+      imu: 车载/机器狗 IMU（按平台和序列）
+      camera: 高分辨率事件相机与普通相机
+    ground_truth:
+      available: true
+      type: evo-compatible ground-truth pose files
+      notes: M3ED Rev. 1.2 发布 evo ground-truth pose files；不同平台和序列的真值形式可能不同。
+    evidence:
+      - https://m3ed.io/
+      - https://github.com/daniilidis-group/m3ed#readme
+
+  - id: m2dgr
+    name: M2DGR (Multi-modal and Multi-scenario SLAM Dataset for Ground Robots)
+    scenario: 混合场景
+    platform: 地面移动机器人
+    description_zh: 面向地面机器人的多场景多模态 SLAM 基准，含室内、街道、桥梁和停车场序列。
+    project:
+      name: Ground-Fusion
+      url: https://github.com/SJTU-ViSYS/Ground-Fusion
+      docs_url: https://github.com/SJTU-ViSYS/M2DGR#readme
+    dataset:
+      name: M2DGR
+      url: https://github.com/SJTU-ViSYS/M2DGR
+      links:
+        - https://github.com/SJTU-ViSYS/M2DGR-plus
+        - https://github.com/sjtuyinjie/M2DGR-Benchmark
+    sensors:
+      lidar_3d: Robosense 16 3D LiDAR
+      imu: Wheeltec IMU、Xsens MTi-680G GNSS-IMU
+      camera: 多目鱼眼、RGB-D 和事件相机
+      wheel_encoder: 轮速里程计
+      gnss: Ublox F9P GNSS-RTK
+    ground_truth:
+      available: true
+      type: Vicon motion-capture、GNSS-RTK reference trajectory
+      notes: 官方 README 给出 Vicon 1 mm 定位精度和 GNSS-RTK 轨迹，并提供评测配置。
+    evidence:
+      - https://github.com/SJTU-ViSYS/M2DGR#sensor-setup
+      - https://github.com/SJTU-ViSYS/M2DGR-plus#sensor-setup
