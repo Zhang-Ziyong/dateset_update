@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14",
-  "count": 11,
+  "generated_at": "2026-09-15",
+  "count": 18,
   "datasets": [
     {
       "id": "hilti-slam-challenge",
@@ -35,7 +35,7 @@
         "https://github.com/Hilti-Research/hilti-slam-challenge-2022"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: 双目/事件相机（按序列）",
       "ground_truth_notes": "数据集页面提供 ground truth 和评测工具。",
@@ -78,10 +78,57 @@
         "https://github.com/koide3/hdl_graph_slam"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Microstrain 3DM-GX3-45 IMU；camera: Ladybug spherical camera；wheel_encoder: Segway wheel odometry；gnss: Applanix localization/GPS",
       "ground_truth_notes": "官方 ground truth pose 可用于每次采集的轨迹对齐。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "ntu-viral",
+      "name": "NTU VIRAL",
+      "scenario": "无人机/空中机器人",
+      "platform": "无人机",
+      "description_zh": "NTU ARIS 的空中机器人多传感器数据集，覆盖室内外飞行和激光退化场景。",
+      "project": {
+        "name": "NTU VIRAL dataset",
+        "url": "https://github.com/ntu-aris/ntu_viral_dataset",
+        "docs_url": "https://ntu-aris.github.io/ntu_viral_dataset/"
+      },
+      "dataset": {
+        "name": "NTU VIRAL",
+        "url": "https://ntu-aris.github.io/ntu_viral_dataset/",
+        "links": [
+          "https://researchdata.ntu.edu.sg/dataset.xhtml?persistentId=doi:10.21979/N9/X39LEK",
+          "https://github.com/ntu-aris/ntuviral_gt",
+          "https://ntu-aris.github.io/ntu_viral_dataset/evaluation_tutorial.html"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "两台 3D LiDAR（包含 Ouster 点云，型号按序列记录）",
+        "imu": "多个同步 IMU",
+        "camera": "两台时间同步相机",
+        "uwb": "UWB ranging nodes（室内外定位辅助）"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "Leica prism pose trajectory / CSV ground truth",
+        "notes": "官方说明 ground truth 随 rosbag 提供，也可下载 CSV；评测教程给出 Leica pose 和 ATE 计算，并提醒 IMU 到 prism 的 0.4 m 外参偏移。"
+      },
+      "evidence": [
+        "https://ntu-aris.github.io/ntu_viral_dataset/",
+        "https://ntu-aris.github.io/ntu_viral_dataset/evaluation_tutorial.html",
+        "https://github.com/ntu-aris/ntuviral_gt"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "imu: 多个同步 IMU；camera: 两台时间同步相机；uwb: UWB ranging nodes（室内外定位辅助）",
+      "ground_truth_notes": "官方说明 ground truth 随 rosbag 提供，也可下载 CSV；评测教程给出 Leica pose 和 ATE 计算，并提醒 IMU 到 prism 的 0.4 m 外参偏移。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -122,10 +169,54 @@
         "https://github.com/daniilidis-group/m3ed#readme"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: 车载/机器狗 IMU（按平台和序列）；camera: 高分辨率事件相机与普通相机",
       "ground_truth_notes": "M3ED Rev. 1.2 发布 evo ground-truth pose files；不同平台和序列的真值形式可能不同。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "argoverse-2-sensor",
+      "name": "Argoverse 2 Sensor/Lidar Dataset",
+      "scenario": "汽车/自动驾驶",
+      "platform": "汽车",
+      "description_zh": "Argo AI 的大规模城市驾驶激光数据集，提供 32 线激光、HD map 和每帧 6-DOF 车辆定位。",
+      "project": {
+        "name": "Argoverse 2 API",
+        "url": "https://github.com/argoverse/av2-api",
+        "docs_url": "https://www.argoverse.org/av2.html"
+      },
+      "dataset": {
+        "name": "Argoverse 2 Sensor/Lidar Dataset",
+        "url": "https://www.argoverse.org/av2.html",
+        "links": [
+          "https://github.com/argoverse/av2-api",
+          "https://www.argoverse.org/av2.html#download"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "两台 Velodyne VLP-32C 32-beam 3D LiDAR",
+        "camera": "7 个环视相机和 2 个前向双目相机（Sensor Dataset）",
+        "gnss": "GPS-based vehicle localization"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "6-DOF ego-vehicle localization per timestamp",
+        "notes": "官方页面明确提供车辆 6-DOF localization；Lidar Dataset 需按官方脚本下载，数据规模约 5 TB。"
+      },
+      "evidence": [
+        "https://www.argoverse.org/av2.html",
+        "https://github.com/argoverse/av2-api"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "camera: 7 个环视相机和 2 个前向双目相机（Sensor Dataset）；gnss: GPS-based vehicle localization",
+      "ground_truth_notes": "官方页面明确提供车辆 6-DOF localization；Lidar Dataset 需按官方脚本下载，数据规模约 5 TB。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -166,7 +257,7 @@
         "https://github.com/utiasASRL/pyboreas"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Applanix POS LV IMU；camera: Ladybug stereo camera；gnss: Applanix GNSS/INS",
       "ground_truth_notes": "提供高精度 INS 轨迹和时间同步信息。",
@@ -210,7 +301,7 @@
         "https://github.com/tsyxyz/kaist2bag"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: PointGrey stereo camera；gnss: RTK-GPS/INS",
       "ground_truth_notes": "提供时间同步的 GPS/INS 轨迹用于定位评估。",
@@ -255,10 +346,54 @@
         "https://github.com/RobustFieldAutonomyLab/LeGO-LOAM#readme"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: OXTS IMU/GNSS；camera: 4 cameras (灰度/彩色)；wheel_encoder: OXTS vehicle odometry；gnss: GPS/INS",
       "ground_truth_notes": "官方 odometry 序列提供 pose ground truth，可用于 ATE/RPE。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "kitti-360",
+      "name": "KITTI-360",
+      "scenario": "汽车/自动驾驶",
+      "platform": "汽车",
+      "description_zh": "KITTI 系列的全景城市数据集，提供 360 度相机、Velodyne 激光和长距离行驶轨迹。",
+      "project": {
+        "name": "KITTI-360 scripts",
+        "url": "https://github.com/autonomousvision/kitti360Scripts",
+        "docs_url": "https://www.cvlibs.net/datasets/kitti-360/"
+      },
+      "dataset": {
+        "name": "KITTI-360",
+        "url": "https://www.cvlibs.net/datasets/kitti-360/",
+        "links": [
+          "https://github.com/autonomousvision/kitti360Scripts",
+          "https://www.cvlibs.net/datasets/kitti-360/download.php"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "Velodyne HDL-64E 3D LiDAR",
+        "imu": "IMU/GPS localization system (OXTS)",
+        "camera": "4 个鱼眼相机和前向双目相机"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "OXTS IMU/GPS 6-DOF pose trajectory",
+        "notes": "官方发布 OXTS measurements 以及转换为 6D pose 的工具；下载前需注册并说明用途。"
+      },
+      "evidence": [
+        "https://www.cvlibs.net/datasets/kitti-360/",
+        "https://github.com/autonomousvision/kitti360Scripts"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "imu: IMU/GPS localization system (OXTS)；camera: 4 个鱼眼相机和前向双目相机",
+      "ground_truth_notes": "官方发布 OXTS measurements 以及转换为 6D pose 的工具；下载前需注册并说明用途。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -299,10 +434,54 @@
         "https://github.com/MOLAorg/mola_input_mulran_dataset"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens MTi-300 IMU；camera: ZED stereo camera (部分序列)；gnss: NovAtel GNSS/INS",
       "ground_truth_notes": "官方提供 LiDAR、IMU、GNSS/INS 时间同步数据和参考轨迹。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "nuscenes",
+      "name": "nuScenes",
+      "scenario": "汽车/自动驾驶",
+      "platform": "汽车",
+      "description_zh": "Motional/nuTonomy 发布的大规模自动驾驶多传感器数据集，带时间同步的激光、相机和车辆位姿。",
+      "project": {
+        "name": "nuScenes devkit",
+        "url": "https://github.com/nutonomy/nuscenes-devkit",
+        "docs_url": "https://www.nuscenes.org/nuscenes"
+      },
+      "dataset": {
+        "name": "nuScenes",
+        "url": "https://www.nuscenes.org/nuscenes",
+        "links": [
+          "https://www.nuscenes.org/download",
+          "https://github.com/nutonomy/nuscenes-devkit"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "32-beam spinning 3D LiDAR",
+        "camera": "6 个环视相机",
+        "gnss": "CAN bus expansion 中提供 IMU、pose、轮速等车辆状态"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "Official ego-pose trajectory per sample",
+        "notes": "sample_data 关联 ego_pose；完整数据需在官方下载页注册并同意 Terms of Use。"
+      },
+      "evidence": [
+        "https://www.nuscenes.org/nuscenes",
+        "https://github.com/nutonomy/nuscenes-devkit#nuscenes-setup"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "camera: 6 个环视相机；gnss: CAN bus expansion 中提供 IMU、pose、轮速等车辆状态",
+      "ground_truth_notes": "sample_data 关联 ego_pose；完整数据需在官方下载页注册并同意 Terms of Use。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -344,10 +523,54 @@
         "https://github.com/ori-mrg/robotcar-dataset-sdk"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Applanix POS LV INS；camera: Bumblebee stereo and PointGrey cameras；wheel_encoder: CAN bus vehicle odometry；gnss: GPS/INS",
       "ground_truth_notes": "提供 INS 记录和 GPS，可按序列进行轨迹评估。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "pandaset",
+      "name": "PandaSet",
+      "scenario": "汽车/自动驾驶",
+      "platform": "汽车",
+      "description_zh": "Hesai 与 Scale AI 发布的开放自动驾驶数据集，包含高线数激光、相机、GPS 和逐帧传感器位姿。",
+      "project": {
+        "name": "PandaSet devkit",
+        "url": "https://github.com/scaleapi/pandaset-devkit",
+        "docs_url": "https://pandaset.org/"
+      },
+      "dataset": {
+        "name": "PandaSet",
+        "url": "https://pandaset.org/",
+        "links": [
+          "https://github.com/scaleapi/pandaset-devkit",
+          "https://scaleapi.github.io/pandaset-devkit/"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "Hesai Pandar64 和 PandarGT 3D LiDAR",
+        "camera": "6 个相机",
+        "gnss": "GPS/IMU metadata"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "Per-frame LiDAR/camera pose in poses.json",
+        "notes": "官方 devkit 数据结构包含 lidar/poses.json、camera/poses.json 和 meta/gps.json；下载需要在官网注册。"
+      },
+      "evidence": [
+        "https://pandaset.org/",
+        "https://github.com/scaleapi/pandaset-devkit#dataset"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "camera: 6 个相机；gnss: GPS/IMU metadata",
+      "ground_truth_notes": "官方 devkit 数据结构包含 lidar/poses.json、camera/poses.json 和 meta/gps.json；下载需要在官网注册。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -389,10 +612,53 @@
         "https://github.com/TixiaoShan/LIO-SAM"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: 多目相机；wheel_encoder: 车辆 CAN/轮速；gnss: RTK-GPS/INS",
       "ground_truth_notes": "数据集仓库说明了 RTK/GPS 轨迹和多传感器标定。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "waymo-open",
+      "name": "Waymo Open Dataset",
+      "scenario": "汽车/自动驾驶",
+      "platform": "汽车",
+      "description_zh": "Waymo 发布的高分辨率自动驾驶传感器数据和评测代码，包含多线激光与车辆运动信息。",
+      "project": {
+        "name": "Waymo Open Dataset code",
+        "url": "https://github.com/waymo-research/waymo-open-dataset",
+        "docs_url": "https://waymo.com/open/"
+      },
+      "dataset": {
+        "name": "Waymo Open Dataset",
+        "url": "https://waymo.com/open/",
+        "links": [
+          "https://github.com/waymo-research/waymo-open-dataset",
+          "https://waymo.com/open/terms/"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "5 个车载 3D LiDAR（多线激光）",
+        "camera": "5 个高分辨率相机"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "Official vehicle pose in frame metadata",
+        "notes": "Perception 数据格式包含每帧车辆位姿，可整理为 ego trajectory；数据集使用独立的 Waymo Dataset License，需遵守官网条款。"
+      },
+      "evidence": [
+        "https://waymo.com/open/data/",
+        "https://github.com/waymo-research/waymo-open-dataset#readme"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "camera: 5 个高分辨率相机",
+      "ground_truth_notes": "Perception 数据格式包含每帧车辆位姿，可整理为 ego trajectory；数据集使用独立的 Waymo Dataset License，需遵守官网条款。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,
@@ -435,7 +701,7 @@
         "https://github.com/SJTU-ViSYS/M2DGR-plus#sensor-setup"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: Wheeltec IMU、Xsens MTi-680G GNSS-IMU；camera: 多目鱼眼、RGB-D 和事件相机；wheel_encoder: 轮速里程计；gnss: Ublox F9P GNSS-RTK",
       "ground_truth_notes": "官方 README 给出 Vicon 1 mm 定位精度和 GNSS-RTK 轨迹，并提供评测配置。",
@@ -479,10 +745,54 @@
         "https://ori-drs.github.io/newer-college-dataset/download/"
       ],
       "source": "curated",
-      "last_verified": "2026-09-14",
+      "last_verified": "2026-09-15",
       "readme_excerpt": "",
       "sensor_notes": "imu: VectorNav VN-100 IMU；camera: RealSense stereo/RGB cameras；gnss: Leica/全站仪参考系统",
       "ground_truth_notes": "提供 ground truth trajectory 和标定文件。",
+      "confidence": 0.65,
+      "requirements": {
+        "has_3d_lidar": true,
+        "has_trajectory_ground_truth": true
+      }
+    },
+    {
+      "id": "r3live-dataset",
+      "name": "R3LIVE-Dataset",
+      "scenario": "混合场景",
+      "platform": "手持/背负式移动机器人",
+      "description_zh": "HKU MARS 的 LiDAR-惯性-视觉数据集，覆盖 HKU/HKUST 校园、室内外和专门构造的退化场景。",
+      "project": {
+        "name": "R3LIVE",
+        "url": "https://github.com/hku-mars/r3live",
+        "docs_url": "https://github.com/ziv-lin/r3live_dataset"
+      },
+      "dataset": {
+        "name": "R3LIVE-Dataset",
+        "url": "https://github.com/ziv-lin/r3live_dataset",
+        "links": [
+          "https://1drv.ms/f/c/3e715b7aa136191a/EqpK7QnN4OpCqHmL2ykpZ50Bjz3pyJ0kwyvwpBBLtzR4bQ?e=TqPN8E",
+          "https://pan.baidu.com/s/1zmVxkcwOSul8oTBwaHfuFg"
+        ]
+      },
+      "sensors": {
+        "lidar_3d": "Livox LiDAR（livox_ros_driver，型号按序列/设备记录）",
+        "imu": "Livox/设备 IMU",
+        "camera": "彩色相机"
+      },
+      "ground_truth": {
+        "available": true,
+        "type": "ArUco marker relative pose (部分序列)",
+        "notes": "官方数据说明部分序列放置 ArUco marker board，可计算 ground-truth reference pose；其余序列主要用于回环和建图，不应误认为都有完整外部轨迹。"
+      },
+      "evidence": [
+        "https://github.com/ziv-lin/r3live_dataset",
+        "https://github.com/hku-mars/r3live"
+      ],
+      "source": "curated",
+      "last_verified": "2026-09-15",
+      "readme_excerpt": "",
+      "sensor_notes": "imu: Livox/设备 IMU；camera: 彩色相机",
+      "ground_truth_notes": "官方数据说明部分序列放置 ArUco marker board，可计算 ground-truth reference pose；其余序列主要用于回环和建图，不应误认为都有完整外部轨迹。",
       "confidence": 0.65,
       "requirements": {
         "has_3d_lidar": true,

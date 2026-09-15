@@ -10,6 +10,10 @@ github:
     - 'robot slam dataset trajectory lidar'
     - 'quadruped lidar imu dataset ground truth'
     - 'autonomous driving lidar dataset ground truth trajectory'
+    - 'FAST-LIO dataset lidar ground truth'
+    - 'R3LIVE dataset lidar trajectory'
+    - 'lidar inertial visual dataset Leica pose'
+    - 'UAV lidar dataset trajectory ground truth'
 
 ai:
   # 有 ANTHROPIC_AUTH_TOKEN 时启用，与 paper_update 的 Messages API 变量一致。

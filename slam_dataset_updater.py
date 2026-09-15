@@ -525,7 +525,7 @@ def write_markdown(records: Sequence[Mapping[str, Any]], path: Path) -> None:
             sensors = record.get("sensors", {})
             gt = record.get("ground_truth", {})
             sensor_parts = [f"3D LiDAR: {sensors.get('lidar_3d', '已确认')}" ]
-            for key, label in (("imu", "IMU"), ("camera", "视觉"), ("wheel_encoder", "编码器"), ("gnss", "GNSS/RTK")):
+            for key, label in (("imu", "IMU"), ("camera", "视觉"), ("wheel_encoder", "编码器"), ("gnss", "GNSS/RTK"), ("uwb", "UWB")):
                 if sensors.get(key):
                     sensor_parts.append(f"{label}: {sensors[key]}")
             docs = project.get("docs_url") or project.get("url")
