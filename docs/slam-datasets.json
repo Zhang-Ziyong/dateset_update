@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21",
+  "generated_at": "2026-09-28",
   "count": 18,
   "datasets": [
     {
@@ -35,7 +35,7 @@
         "https://github.com/Hilti-Research/hilti-slam-challenge-2022"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: 双目/事件相机（按序列）",
       "ground_truth_notes": "数据集页面提供 ground truth 和评测工具。",
@@ -78,7 +78,7 @@
         "https://github.com/koide3/hdl_graph_slam"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Microstrain 3DM-GX3-45 IMU；camera: Ladybug spherical camera；wheel_encoder: Segway wheel odometry；gnss: Applanix localization/GPS",
       "ground_truth_notes": "官方 ground truth pose 可用于每次采集的轨迹对齐。",
@@ -125,7 +125,7 @@
         "https://github.com/ntu-aris/ntuviral_gt"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: 多个同步 IMU；camera: 两台时间同步相机；uwb: UWB ranging nodes（室内外定位辅助）",
       "ground_truth_notes": "官方说明 ground truth 随 rosbag 提供，也可下载 CSV；评测教程给出 Leica pose 和 ATE 计算，并提醒 IMU 到 prism 的 0.4 m 外参偏移。",
@@ -169,7 +169,7 @@
         "https://github.com/daniilidis-group/m3ed#readme"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: 车载/机器狗 IMU（按平台和序列）；camera: 高分辨率事件相机与普通相机",
       "ground_truth_notes": "M3ED Rev. 1.2 发布 evo ground-truth pose files；不同平台和序列的真值形式可能不同。",
@@ -213,7 +213,7 @@
         "https://github.com/argoverse/av2-api"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "camera: 7 个环视相机和 2 个前向双目相机（Sensor Dataset）；gnss: GPS-based vehicle localization",
       "ground_truth_notes": "官方页面明确提供车辆 6-DOF localization；Lidar Dataset 需按官方脚本下载，数据规模约 5 TB。",
@@ -257,7 +257,7 @@
         "https://github.com/utiasASRL/pyboreas"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Applanix POS LV IMU；camera: Ladybug stereo camera；gnss: Applanix GNSS/INS",
       "ground_truth_notes": "提供高精度 INS 轨迹和时间同步信息。",
@@ -301,7 +301,7 @@
         "https://github.com/tsyxyz/kaist2bag"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: PointGrey stereo camera；gnss: RTK-GPS/INS",
       "ground_truth_notes": "提供时间同步的 GPS/INS 轨迹用于定位评估。",
@@ -346,7 +346,7 @@
         "https://github.com/RobustFieldAutonomyLab/LeGO-LOAM#readme"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: OXTS IMU/GNSS；camera: 4 cameras (灰度/彩色)；wheel_encoder: OXTS vehicle odometry；gnss: GPS/INS",
       "ground_truth_notes": "官方 odometry 序列提供 pose ground truth，可用于 ATE/RPE。",
@@ -390,7 +390,7 @@
         "https://github.com/autonomousvision/kitti360Scripts"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: IMU/GPS localization system (OXTS)；camera: 4 个鱼眼相机和前向双目相机",
       "ground_truth_notes": "官方发布 OXTS measurements 以及转换为 6D pose 的工具；下载前需注册并说明用途。",
@@ -434,7 +434,7 @@
         "https://github.com/MOLAorg/mola_input_mulran_dataset"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens MTi-300 IMU；camera: ZED stereo camera (部分序列)；gnss: NovAtel GNSS/INS",
       "ground_truth_notes": "官方提供 LiDAR、IMU、GNSS/INS 时间同步数据和参考轨迹。",
@@ -478,7 +478,7 @@
         "https://github.com/nutonomy/nuscenes-devkit#nuscenes-setup"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "camera: 6 个环视相机；gnss: CAN bus expansion 中提供 IMU、pose、轮速等车辆状态",
       "ground_truth_notes": "sample_data 关联 ego_pose；完整数据需在官方下载页注册并同意 Terms of Use。",
@@ -523,7 +523,7 @@
         "https://github.com/ori-mrg/robotcar-dataset-sdk"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Applanix POS LV INS；camera: Bumblebee stereo and PointGrey cameras；wheel_encoder: CAN bus vehicle odometry；gnss: GPS/INS",
       "ground_truth_notes": "提供 INS 记录和 GPS，可按序列进行轨迹评估。",
@@ -567,7 +567,7 @@
         "https://github.com/scaleapi/pandaset-devkit#dataset"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "camera: 6 个相机；gnss: GPS/IMU metadata",
       "ground_truth_notes": "官方 devkit 数据结构包含 lidar/poses.json、camera/poses.json 和 meta/gps.json；下载需要在官网注册。",
@@ -612,7 +612,7 @@
         "https://github.com/TixiaoShan/LIO-SAM"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Xsens IMU；camera: 多目相机；wheel_encoder: 车辆 CAN/轮速；gnss: RTK-GPS/INS",
       "ground_truth_notes": "数据集仓库说明了 RTK/GPS 轨迹和多传感器标定。",
@@ -655,7 +655,7 @@
         "https://github.com/waymo-research/waymo-open-dataset#readme"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "camera: 5 个高分辨率相机",
       "ground_truth_notes": "Perception 数据格式包含每帧车辆位姿，可整理为 ego trajectory；数据集使用独立的 Waymo Dataset License，需遵守官网条款。",
@@ -701,7 +701,7 @@
         "https://github.com/SJTU-ViSYS/M2DGR-plus#sensor-setup"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Wheeltec IMU、Xsens MTi-680G GNSS-IMU；camera: 多目鱼眼、RGB-D 和事件相机；wheel_encoder: 轮速里程计；gnss: Ublox F9P GNSS-RTK",
       "ground_truth_notes": "官方 README 给出 Vicon 1 mm 定位精度和 GNSS-RTK 轨迹，并提供评测配置。",
@@ -745,7 +745,7 @@
         "https://ori-drs.github.io/newer-college-dataset/download/"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: VectorNav VN-100 IMU；camera: RealSense stereo/RGB cameras；gnss: Leica/全站仪参考系统",
       "ground_truth_notes": "提供 ground truth trajectory 和标定文件。",
@@ -789,7 +789,7 @@
         "https://github.com/hku-mars/r3live"
       ],
       "source": "curated",
-      "last_verified": "2026-09-21",
+      "last_verified": "2026-09-28",
       "readme_excerpt": "",
       "sensor_notes": "imu: Livox/设备 IMU；camera: 彩色相机",
       "ground_truth_notes": "官方数据说明部分序列放置 ArUco marker board，可计算 ground-truth reference pose；其余序列主要用于回环和建图，不应误认为都有完整外部轨迹。",
