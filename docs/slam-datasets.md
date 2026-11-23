@@ -1,8 +1,8 @@
 # 机器人 3D 激光 SLAM 数据集目录
 
-> 自动生成于 2026-11-16。仅收录同时确认包含 3D 激光雷达和轨迹真值的数据集；README 发现项仍需人工复核。
+> 自动生成于 2026-11-23。仅收录同时确认包含 3D 激光雷达和轨迹真值的数据集；README 发现项仍需人工复核。
 
-共 **18** 个数据集。字段详情见 [JSON 数据](slam-datasets.json)。
+共 **19** 个数据集。字段详情见 [JSON 数据](slam-datasets.json)。
 
 ## 筛选规则
 
@@ -20,6 +20,7 @@
 | KITTI Odometry<br>经典自动驾驶里程计基准，适合评估激光-惯性和多传感器 SLAM。 | [LeGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) | 3D LiDAR: Velodyne HDL-64E 3D LiDAR<br>IMU: OXTS IMU/GNSS<br>视觉: 4 cameras (灰度/彩色)<br>编码器: OXTS vehicle odometry<br>GNSS/RTK: GPS/INS | OXTS GPS/INS reference trajectory | [数据集](https://www.cvlibs.net/datasets/kitti/eval_odometry.php) / [文档](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM#readme) / [链接1](https://www.cvlibs.net/datasets/kitti/setup.php) |
 | KITTI-360<br>KITTI 系列的全景城市数据集，提供 360 度相机、Velodyne 激光和长距离行驶轨迹。 | [KITTI-360 scripts](https://github.com/autonomousvision/kitti360Scripts) | 3D LiDAR: Velodyne HDL-64E 3D LiDAR<br>IMU: IMU/GPS localization system (OXTS)<br>视觉: 4 个鱼眼相机和前向双目相机 | OXTS IMU/GPS 6-DOF pose trajectory | [数据集](https://www.cvlibs.net/datasets/kitti-360/) / [链接1](https://github.com/autonomousvision/kitti360Scripts) / [链接2](https://www.cvlibs.net/datasets/kitti-360/download.php) |
 | MulRan<br>多城市、多天气的激光-惯性-卫星导航数据集，适合回环和长期定位。 | [MOLA MulRan input module](https://github.com/MOLAorg/mola_input_mulran_dataset) | 3D LiDAR: Ouster OS1-64 3D LiDAR<br>IMU: Xsens MTi-300 IMU<br>视觉: ZED stereo camera (部分序列)<br>GNSS/RTK: NovAtel GNSS/INS | NovAtel GNSS/INS reference trajectory | [数据集](https://sites.google.com/view/mulran-pr/dataset) / [文档](https://github.com/MOLAorg/mola_input_mulran_dataset#readme) / [链接1](https://github.com/RPM-Robotics-Lab/file_player_mulran) |
+| mvsim_lio_benchmark<br>面向汽车的 3D 激光 SLAM 数据集，包含可用于轨迹评估的真值。 | [MOLAorg/mvsim_lio_benchmark](https://github.com/MOLAorg/mvsim_lio_benchmark) | 3D LiDAR: GitHub 项目描述/README 证据: 3D LiDAR, Ouster, hdl64 | README 证据待人工核验 | [数据集](https://huggingface.co/datasets/MOLAorg/MVSim-LIO) / [文档](https://github.com/MOLAorg/mvsim_lio_benchmark) / [链接1](https://huggingface.co/datasets/MOLAorg/MVSim-LIO) / [链接2](https://github.com/MRPT/mrpt_ros_bridge) / [链接3](https://github.com/MRPT/mrpt_ros_bridge.git) |
 | nuScenes<br>Motional/nuTonomy 发布的大规模自动驾驶多传感器数据集，带时间同步的激光、相机和车辆位姿。 | [nuScenes devkit](https://github.com/nutonomy/nuscenes-devkit) | 3D LiDAR: 32-beam spinning 3D LiDAR<br>视觉: 6 个环视相机<br>GNSS/RTK: CAN bus expansion 中提供 IMU、pose、轮速等车辆状态 | Official ego-pose trajectory per sample | [数据集](https://www.nuscenes.org/nuscenes) / [链接1](https://www.nuscenes.org/download) / [链接2](https://github.com/nutonomy/nuscenes-devkit) |
 | Oxford RobotCar<br>覆盖一年天气和昼夜变化的大规模真实道路机器人数据集。 | [RobotCar Dataset SDK](https://github.com/ori-mrg/robotcar-dataset-sdk) | 3D LiDAR: Velodyne HDL-32E 3D LiDAR<br>IMU: Applanix POS LV INS<br>视觉: Bumblebee stereo and PointGrey cameras<br>编码器: CAN bus vehicle odometry<br>GNSS/RTK: GPS/INS | Applanix INS/GPS trajectory | [数据集](https://robotcar-dataset.robots.ox.ac.uk/) / [文档](https://robotcar-dataset.robots.ox.ac.uk/documentation/) / [链接1](https://robotcar-dataset.robots.ox.ac.uk/datasets/) |
 | PandaSet<br>Hesai 与 Scale AI 发布的开放自动驾驶数据集，包含高线数激光、相机、GPS 和逐帧传感器位姿。 | [PandaSet devkit](https://github.com/scaleapi/pandaset-devkit) | 3D LiDAR: Hesai Pandar64 和 PandarGT 3D LiDAR<br>视觉: 6 个相机<br>GNSS/RTK: GPS/IMU metadata | Per-frame LiDAR/camera pose in poses.json | [数据集](https://pandaset.org/) / [链接1](https://github.com/scaleapi/pandaset-devkit) / [链接2](https://scaleapi.github.io/pandaset-devkit/) |
